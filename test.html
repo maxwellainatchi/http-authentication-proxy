@@ -1,0 +1,39 @@
+<html>
+<body>
+	<center><canvas id="canvas" width="500"; height="500" /></center>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.ellipse(250, 150, 250, 50, 0, 0, 2 * Math.PI, false);
+		ctx.moveTo(0, 150);
+		ctx.lineTo(0, 450);
+		ctx.moveTo(500, 150);
+		ctx.lineTo(500, 450);
+		ctx.moveTo(500, 250);
+		ctx.ellipse(250, 250, 250, 50, 0, 0, Math.PI, false);
+		ctx.moveTo(500, 350);
+		ctx.ellipse(250, 350, 250, 50, 0, 0, Math.PI, false);
+		ctx.moveTo(500, 450);
+		ctx.ellipse(250, 450, 250, 50, 0, 0, Math.PI, false);
+		ctx.stroke();
+
+		function box(x, y) {
+			ctx.fillStyle = "white"
+			ctx.strokeStyle = "black"
+			ctx.fillRect(x, y, 5, 50)
+			ctx.strokeRect(x, y, 5, 50);
+		}
+
+		let minX = 50;
+		let maxX = 450;
+		let minY = 80;
+		let maxY = 120;
+
+		for (let i = 0; i < 21; ++i) {
+			box(Math.random() * (maxX - minX) + minX, Math.random() * (maxY - minY) + minY);
+		}
+	</script>
+</body>
+
+</html>
